@@ -6,7 +6,7 @@
              <div class="row">
                 <div class="col-md-6 logo-part">
                    <div class="logo-footer">
-                      <img src="assets/img/logo.png" class="w-100 logo-footer" alt="Logo ferretex" >
+                      <img src="<?php echo base_url();?>assets/img/logo.png" class="w-100 logo-footer" alt="Logo ferretex" >
                       <p class="texto text-center">767 Irigoyen, Corrientes, Argentina CP 3400</p>
                    </div>
                 </div>
@@ -59,7 +59,8 @@
     </div>
 <!-- End Footer -->
 
-<script src="assets/js/jquery-3.6.0.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url();?>assets/js/jquery-3.6.0.min.js"></script>
+<script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url();?>assets/js/dashboard.js"></script>
   </body>
 </html>

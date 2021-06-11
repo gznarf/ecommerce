@@ -49,12 +49,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Index';
+$route['default_controller']    = 'View_controller';
 $route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
-$route['nosotros'] = 'Index/nosotros';
-$route['terminos'] = 'Index/terminos';
-$route['comercializacion'] = 'Index/comercializacion';
-$route['contacto'] = 'Index/contacto';
-$route['productos'] = 'Index/productos';
-
+$route['translate_uri_dashes']  = FALSE;
+$route['nosotros']              = 'View_controller/nosotros';
+$route['terminos']              = 'View_controller/terminos';
+$route['comercializacion']      = 'View_controller/comercializacion';
+$route['contacto']              = 'View_controller/contacto';
+$route['dashboard_view']        = 'View_controller/dashboard_view';
+$route['productos']             = 'View_controller/productos';
+/**Controlador usuarios */
+$route['registrarse']           = 'Usuario_controller/registrarse';
+$route['registrar']             = 'Usuario_controller/registrar';
+/**Controlador Logueo */
+$route['login']                 = 'Login_controller/login';
+$route['ingresar']              = 'Login_controller/ingresar';
+$route['logout']                = 'Login_controller/logout';
+/**Controlaror Categorias */
+$route['categorias']            = 'Categorias_controller/categorias';
+$route['registrar_categoria']   = 'Categorias_controller/registrar_categoria';
+/**Controlador Productos */
+$route['cargar_productos']      = 'Productos_controller/cargar_productos';
+$route['registrar_producto']    = 'Productos_controller/registrar_producto';
+$route['editar_producto']       = 'Productos_controller/editar_producto';
+$route['listado_productos']     = 'Productos_controller/listado_productos';
+$route['editar_producto/(:num)']        = 'Productos_controller/editar_producto/$1';
+$route['verifica_actualizar/(:num)']    = 'Productos_controller/verifica_actualizar/$1';
+$route['eliminar_producto/(:num)']      = 'Productos_controller/eliminar_producto/$1';
+$route['activar_producto/(:num)']       = 'Productos_controller/activar_producto/$1';
+$route['mostrar_productos']      = 'Productos_controller/mostrar_productos';

@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/customStyle.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/all.min.css">
+ 
+    
     <link rel="shortcut icon" href="<?php echo base_url();?>assets/img/icon.ico">
     
 

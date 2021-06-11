@@ -1,0 +1,44 @@
+public function image_upload(){
+
+            
+
+            if(!empty($_FILES['image']['image'])){
+                $config['upload_path'] = './uploads/';
+                $config['allowed_types'] = 'gif|jpg|JPEG|png';
+                $config['remove_spaces'] = TRUE;
+                $config['max_size'] = 100;
+                $config['max_width']  = 1024;
+                $config['max_height']  = 768;    
+                
+                $this->load->library('upload', $config);
+
+
+                if($this->upload->do_upload('image')){
+                    $data = $this->upload->$data();
+
+                    $url = './uploads/'.$_FILES['image']['name'];
+
+                    $producto = array (
+                        'cod_producto'  =>$this->input->post('cod_producto'),
+                        'titulo'        =>$this->input->post('titulo'),
+                        'id_categoria'  =>$this->input->post('categoria'),
+                        'copete'        =>$this->input->post('copete'),
+                        'descripcion'   => $this->input->post('descripcion'),
+                        'marca'         => $this->input->post('marca'),
+                        'precio'        => $this->input->post('precio'),
+                        'stock'         => $this->input->post('stock'),
+                        'image'         => $url,
+                        'estado_producto' => 1,
+                        );
+                        $this->load->model('Producto_model');
+                        $this->Producto_model->insertar_producto($producto);
+                        echo 'El producto fue dado de alta con exito';
+                        return TRUE;
+                }else{
+                    $imageerrors = '<div class="alert alert-danger">El campo %s es incorrecta, extención incorrecto o excede el tamaño permitido que es de: 2MB </div>';//$this->upload->display_errors();
+					$this->form_validation->set_message('image_upload',$imageerrors );
+					
+					return false;
+                }
+            }
+		}

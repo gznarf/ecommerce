@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Index extends CI_Controller {
+class View_controller extends CI_Controller {
     function __construct() {
 		parent::__construct();
 		
@@ -15,7 +15,6 @@ class Index extends CI_Controller {
 		}
        
 		public function nosotros(){
-		
 			$data = array('titulo' => 'Quienes Somos');
 			$this->load->view('front/header',$data);
 			$this->load->view('front/menu');
@@ -47,11 +46,19 @@ class Index extends CI_Controller {
 			$this->load->view('front/footer');
 		}
 
-		public function productos(){
-			$data = array('titulo' => "Productos");
+		public function dashboard_view(){
+			$data = array('titulo' => "Dashboard");
 			$this->load->view('front/header', $data);
-			$this->load->view('front/menu');
-			$this->load->view('productos');
+			$this->load->view('usuario/menu');
+			$this->load->view('usuario/dashboard_view');
+			$this->load->view('front/footer');
+		}
+
+		public function productos(){
+			$data = array('titulo' => 'productos');
+			$this->load->view('front/header');
+			$this->load->view('usuario/menu');
+			$this->load->view('productos/cargar_productos');
 			$this->load->view('front/footer');
 		}
 }
