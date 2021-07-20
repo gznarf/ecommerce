@@ -251,3 +251,24 @@ a:hover {
     color: rgba(255,255,255,.8);
   /*   transform: translate3d(0, 400%,1px); */
 }
+
+/*Products datails*/
+.container-detalles-productos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "foto detalles"
+    "descripcion ."
+    ". .";
+}
+
+.lead-detalles {
+  font-size: 1rem;
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 1.7rem;
+
+}

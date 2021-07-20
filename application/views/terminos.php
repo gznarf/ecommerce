@@ -46,6 +46,42 @@ Una vez que usted de clic en estos enlaces y abandone nuestra página, ya no ten
 por lo tanto no somos responsables de los términos o privacidad ni de la protección de sus datos en esos otros sitios terceros. 
 Dichos sitios están sujetos a sus propias políticas de privacidad por lo cual es recomendable que los consulte para confirmar que usted está de acuerdo con estas.</p>
 
+<h2 class="py-3"> Entrega a domicilio</h2>
+
+<p class="lead text-justify">En el caso de Entrega a Domicilio, el Usuario deberá ingresar el código postal de su domicilio y la dirección de entrega del o los productos 
+seleccionados, pudiendo ver a través del Sitio el costo del envío para el código postal de entrega y conocer el plazo posible de entrega. Las entregas se realizarán de 
+lunes a sábados de 8 a 20 hs. en el domicilio indicado por el Usuario. Los domingos y días feriados no se realizarán entregas, por lo tanto, para los plazos otorgados 
+se deberá tener en cuenta solo días hábiles. Por razones de cuidado y seguridad de los Usuarios se realizará una validación de datos. La fecha de entrega comenzará a 
+correr a partir del resultado de dicha validación. Asimismo, en el momento de la entrega del producto adquirido se solicitará a la persona receptora del producto 
+el DNI, el cual deberá coincidir con el Usuario que ha efectuado la compra. Por razones de seguridad quien haga entrega del producto adquirido podrá tomar 
+una fotografía del DNI del receptor. Asimismo, el receptor deberá suscribir el recibo con la aclaración del nombre completo y documento de identidad.</p>
+
+<h2 class="py-3"> Retiro en Sucursal</h2>
+
+<p class="lead text-justify">En caso de seleccionar Retiro en Sucursal, el Usuario podrá optar por retirar el producto en alguno de los locales habilitados por el Sitio, 
+los cuales le serán detallados al momento de seleccionar la provincia respectiva. El Sitio le mostrará al Usuario los horarios habilitados para cada sucursal así 
+como el posible plazo en el cual puede retirarse el producto. Tenga en cuenta que más allá del posible plazo estimado informado en el Sitio, el Usuario deberá esperar 
+el correo electrónico de confirmación que enviará Ferretex, indicando que ya puede retirar su producto de la Sucursal seleccionada. El Usuario dispondrá de 
+quince (15) días corridos para retirar el producto. Una vez transcurrido dicho plazo, Ferretex podrá liberar el stock de la operación y las sumas abonadas se 
+mantendrán como nota de crédito o Fravecheck, a criterio de Ferretex, en favor del Usuario, por el monto nominal de la compra. Para retirar el producto, el Usuario 
+deberá presentar el comprobante de la compra efectuada, DNI y en caso de haber utilizado tarjeta de crédito o débito, exhibir la misma. Tenga en cuenta que el 
+producto solo podrá ser retirado por el titular de la tarjeta de crédito o débito. En caso de haberse abonado con dos tarjetas de crédito o débito de diferentes 
+titulares, deberá presentarse a retirar el titular que haya abonado la mayor parte del producto adquirido.
+
+Independientemente de la modalidad de entrega del producto seleccionada por el Usuario, se recomienda al Usuario revisar de forma previa que el 
+producto entregado no tenga ralladuras o golpes como resultado del traslado o del almacenamiento, antes de firmar la conformidad de entrega. 
+La firma de dicho comprobante o del remito en su caso, implicará que el Usuario ha prestado conformidad con el producto entregado y su estado.</p>
+
+<h2 class="py-3"> Cambios y devoluciones</h2>
+
+<p class="lead text-justify">La devolución de productos sólo será aceptada dentro de los diez (10) días de recibida la mercadería. El cambio de los productos por daño 
+estético sólo será aceptado ante reclamo dentro de las 48 hrs. de recibida la mercadería. Para la devolución o cambio, es necesario que el producto se encuentre en 
+perfectas condiciones, con accesorios y empaques originales. En todos los casos se deberá conservar la factura de compra (en su versión física o digital) y remito de 
+entrega. Los cambios y/o devoluciones deberán realizarse por el Centro de Ayuda del Sitio (www.ferretex.com) y/o al teléfono 0810 5555 3728 que se 
+especifican en su correo electrónico de compra donde se le brindará al Usuario la información y la solución más cómoda para su conformidad. Se deja expresa constancia 
+que el Usuario posee el derecho a revocar la aceptación de la oferta que realice, durante un plazo de diez (10) días corridos, desde la entrega del producto o desde 
+celebración del contrato, lo último que ocurra, en los términos de la normativa vigente.</p>
+
 <h2 class="py-3"> Control de su información personal</h2>
 
 <p class="lead text-justify">En cualquier momento usted puede restringir la recopilación o el uso de la información personal que es proporcionada a nuestro sitio web. 

@@ -56,85 +56,25 @@
   </div>
 </div>-->
 
-<!-- Section New Product -->
-<section class="container my-5">
-  <h3 class="text-uppercase text-center mb-4 text-info display-4">Nuevos productos</h3>
-  <div class="card-deck text">
-    <div class="card">
-      <img class="card-img-top img-fluid" src="assets/img/card1.png" alt="Productos">
-      <div class="card-block">
-        <div class="card-footer">
-          <h5 class="card-title text-center">TALADRO INALAMBRICO TH-CD 12</h5>
-          <h6 class="card-text text-center text-primary">Precio: $AR 49.520,88</h6>
-        </div>
-        <!--<a class="btn btn-primary btn-block" href="<?php echo base_url('products');?>" role="button">Agregar al carrito</a>-->
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top img-fluid" src="assets/img/card2.png" alt="Productos">
-      <div class="card-block">
-        <div class="card-footer">
-          <h5 class="card-title text-center">CLAVADORA NEUMATICA AN611 20V</h5>
-          <h6 class="card-text text-center text-primary">Precio: $AR 95.112,27</h6>
-        </div>
-        <!--<a class="btn btn-primary btn-block" href="<?php echo base_url('products');?>" role="button">Agregar al carrito</a>-->
-      </div>
-    </div>
-    <div class="card">
-      <img class="card-img-top img-fluid" src="assets/img/card3.png" alt="Productos">
-      <div class="card-block">
-        <div class="card-footer">
-          <h5 class="card-title text-center">TALADRO ATORNILLADOR SIN CARBONES C/PERCUTOR 20V</h5>
-          <h6 class="card-text text-center text-primary">Precio: $AR 95.112,27</h6>
-        </div>
-        <!--<a class="btn btn-primary btn-block" href="<?php echo base_url('products');?>" role="button">Agregar al carrito</a>-->
-      </div>
-    </div>
-  </div>
-</section>
- <!-- End Section New Products-->
 
 <!-- highlight Products-->
 <section>
   <div class="container my-5">
     <hr class="">
-    <h3 class="text-uppercase text-center mb-4 display-4 text-info">Productos destacados</h3>
-    <div class="row d-flex align-items-center my-5 py-3">
+    <h3 class="text-uppercase text-center mb-4 text-info">Productos destacados</h3>
+    <?php foreach($destacados as $productos){?>
+    <div class="row d-flex align-items-center py-3">
       <div class="col-md-7">
-        <h2 class="display-4 text-justify">Taladro Inalámbrico.<span class="text-muted"> La mayor potencia en tus manos.</span></h2>
-        <p class="lead text-justify">Su mandril de 13 mm te permitirá manipular fácilmente la herramienta de manera segura y precisa. 
-        Además, su velocidad variable ofrece una gran experiencia de uso, adaptada a tus necesidades y requerimentos.</p>
+       <a href="<?php echo base_url("detalles_producto/$productos->id_producto");?>"> <h2 class="text-justify"><?php echo $productos->titulo ;?></a></br></br>
+        <span class="text-muted"> <?php echo $productos->descripcion ;?></span>
       </div>
       <div class="col-md-5">
-        <img class=" img-fluid mx-auto" src="assets/img/card1.png" alt="Productos">
+        <img  src="<?php echo base_url('./uploads/').$productos->imagen ;?>" width = "200px" height = "200px" alt="Productos">
       </div>
+      <div class="col-md-5"> <h3 class="text-danger text-align-left"> <strong> $ <?php echo $productos->precio;?></strong></h3></div>
     </div>
     
     <hr class="">
-    
-    <div class="row d-flex align-items-center py-3">
-      <div class="col-md-7">
-        <h2 class="display-4 text-justify">Taladro Inalámbrico.<span class="text-muted"> Te-Cd 18/2Li Kit.</span></h2>
-        <p class="lead text-justify">El taladro / destornillador inalámbrico TE-CD 18/2 Li Kit es un dispositivo potente, robusto y versátil que cumple con las altas exigencias de 
-        atornillado y perforación en el hogar, el taller y el garaje.</p>
-      </div>
-      <div class="col-md-5 pull-md-7">
-        <img class=" img-fluid mx-auto" src="assets/img/card2.png" alt="Productos">
-      </div>
-    </div>
-    
-    <hr class="">
-    
-    <div class="row d-flex align-items-center py-3">
-      <div class="col-md-7">
-        <h2 class="display-4 text-justify">Taladro atornillador 20V. <span class="text-muted"> Con percutor DCD985L2.</span></h2>
-        <p class="lead text-justify">Batería de 3.0Ah para mayor rendimiento y autonomía. Control de Velocidad Electrónico en el gatillo. inversión de giro. Engranajes planetarios 100% 
-        metálicos aumentan la eficiencia y durabilidad. ficiencia del motor: realiza las aplicaciones 15% más rápido.</p>
-      </div>
-      <div class="col-md-5">
-        <img class=" img-fluid mx-auto" src="assets/img/card3.png" alt="Productos">
-      </div>
-    </div>
-  </div>
+    <?php }?>
 </section>
 <!-- End highlight products -->

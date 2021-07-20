@@ -6,7 +6,6 @@ class Productos_controller extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Producto_model');
         $this->load->library('pagination');
-        $this->load->config('pagination');
 
 		}
 
@@ -14,7 +13,8 @@ class Productos_controller extends CI_Controller {
             $categorias['categorias'] = $this->Producto_model->seleccionar_categoria();
 			$data = array('titulo' => 'Agregar productos');
 			$this->load->view('front/header', $data);
-			$this->load->view('front/menu');
+			$this->load->view('usuario/menu');
+            $this->load->view('usuario/dashboard_view');            
 			$this->load->view('productos/cargar_productos', $categorias);
 			$this->load->view('front/footer');
 		}
@@ -81,7 +81,7 @@ class Productos_controller extends CI_Controller {
                 'estado_producto' => 1
                 );
                     $this->Producto_model->insertar_producto($producto);
-                        echo 'El producto fue dado de alta con exito';
+                       redirect('gracias');
                         return TRUE;
                     }else{
                         $this->form_validation->set_message('filename', 'Debe seleccionar una imagen');
@@ -90,33 +90,91 @@ class Productos_controller extends CI_Controller {
                     }
         }
 
+        public function gracias(){
+            $data = array('titulo' => 'Producto agregado');
+			$this->load->view('front/header', $data);
+			$this->load->view('usuario/menu');
+            $this->load->view('usuario/dashboard_view');   
+			$this->load->view('gracias');
+			$this->load->view('front/footer');
+        }
+
         public function listado_productos(){
             
             $productos['productos'] = $this->Producto_model->listar_productos();
             $data = array('titulo' => 'Listado de productos');
             $this->load->view('front/header',$data);
-            $this->load->view('front/menu');
+            $this->load->view('usuario/menu');
+            $this->load->view('usuario/dashboard_view');   
             $this->load->view('productos/listado_productos', $productos);
             $this->load->view('front/footer');
         }
 
         public function mostrar_productos(){
-            
             $config['base_url'] = base_url().'productos_controller/mostrar_productos';
             $config['total_rows'] = $this->Producto_model->numero_productos(); 
+            $config['per_page']   = 6;
             $config['uri_segment'] = 3;
             $config['num_links'] = 5;
+
             $this->pagination->initialize($config);
 
-            $productos['productos'] = $this->Producto_model->mostrar_productos();
-            $productos['row'] = $this->Producto_model->pagination($config);
+            $productos['productos'] = $this->Producto_model->pagination($config['per_page']);
             $productos['pagination'] = $this->pagination->create_links();
             $data = array('titulo' => 'Productos');
 
-            $this->load->view('front/header',$data);
+            $session_data = $this->session->userdata('logged_in');
+            $perfil = $this->session->userdata('perfil_id');
+                
+            if($session_data){
+                $this->load->view('front/header',$data);
+                $this->load->view('usuario/menu');
+                $this->load->view('productos/mostrar_productos', $productos);
+                $this->load->view('front/footer');
+            }else{
+                $this->load->view('front/header',$data);
+                $this->load->view('front/menu');
+                $this->load->view('productos/mostrar_productos', $productos);
+                $this->load->view('front/footer');
+            }
+        }
+
+        public function detalles_producto(){
+            $id = $this->uri->segment(2);
+            $producto = $this->Producto_model->seleccionar_producto($id);
+
+            foreach($producto->result() as $row){
+                $id_producto    = $row->id_producto;
+                $cod_producto   = $row->cod_producto;
+                $titulo         = $row->titulo;
+                $id_categoria   = $row->id_categoria;
+                $copete         = $row->copete;
+                $descripcion    = $row->descripcion;
+                $marca          = $row->marca;
+                $precio         = $row->precio;
+                $stock          = $row->stock;
+                $imagen         = $row->imagen;
+            }
+
+            $data = array(
+                'id_producto' => $id_producto,
+                'cod_producto' => $cod_producto,
+                'titulo' => $titulo,
+                'id_categoria' => $id_categoria,
+                'copete' => $copete,
+                'descripcion' => $descripcion,
+                'marca' => $marca,
+                'precio' => $precio,
+                'stock' => $stock,
+                'imagen' => $imagen
+            );
+
+            $titulo = array('titulo' => 'Editar Productos');
+            $this->load->view('front/header', $titulo);
             $this->load->view('front/menu');
-            $this->load->view('productos/mostrar_productos', $productos);
+            $this->load->view('productos/detalles_producto', $data);
             $this->load->view('front/footer');
+
         }
 
         public function editar_producto(){
@@ -159,7 +217,8 @@ class Productos_controller extends CI_Controller {
             $data['categorias'] = $this->Producto_model->seleccionar_categoria();
             $titulo = array('titulo' => 'Editar Productos');
             $this->load->view('front/header', $titulo);
-            $this->load->view('front/menu');
+            $this->load->view('usuario/menu');
+            $this->load->view('usuario/dashboard_view');   
             $this->load->view('productos/editar_producto', $data);
             $this->load->view('front/footer');
 
@@ -233,7 +292,7 @@ class Productos_controller extends CI_Controller {
             );
 
             $this->Producto_model->actualizar_producto($id, $producto);
-                        echo 'El producto fue dado de alta con exito';
+                        redirect('gracias');
                         return TRUE;
                     }else{
                         $this->form_validation->set_message('filename', 'Debe seleccionar una imagen');
@@ -260,6 +319,5 @@ class Productos_controller extends CI_Controller {
             $this->Producto_model->activar_producto($id_producto, $data);
             redirect('listado_productos', 'refresh');
         }
-
 
 }

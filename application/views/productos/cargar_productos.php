@@ -1,5 +1,6 @@
-<h1 class="text-center py-3">Registro de productos</h1>
-<div class="container">
+<div class="col-lg-8 mb-4">
+	<h1 class="text-center py-3">Registro de productos</h1>
+
 	<div class="w-50 mx-auto">
 			<?php echo form_open_multipart('registrar_producto');?>
 	
@@ -51,13 +52,13 @@
 
 		<div class="form-group">
 			<label for="precio" class="text-primary font-weight-bold">Precio del producto</label>
-			<input type="number" name="precio" id="precio" class="form-control" placeholder="Ingrese el precio del producto" autofocus="autofocus"  value="<?php echo set_value('precio') ;?>">
+			<input type="number" name="precio" id="precio" class="form-control" pattern="\d+" id="numero" placeholder="Ingrese el precio del producto" autofocus="autofocus"  value="<?php echo set_value('precio') ;?>">
 		</div>
 			<span class="text-danger"><?php echo form_error('precio');?></span>
 
 		<div class="form-group">
 			<label for="stock" class="text-primary font-weight-bold">Stock del producto</label>
-			<input type="number" name="stock" id="stock" class="form-control" placeholder="Ingrese el stock disponible" autofocus="autofocus"  value="<?php echo set_value('stock') ;?>">
+			<input type="number" name="stock" id="stock" class="form-control" pattern="\d+" id="numero" placeholder="Ingrese el stock disponible" autofocus="autofocus"  value="<?php echo set_value('stock') ;?>">
 		</div>
 		<span class="text-danger"><?php echo form_error('stock');?></span>
 
@@ -76,5 +77,10 @@
 		</div>
 			<?php echo form_close(); ?>
 	</div>
-
 </div>
+</div>
+</div>
+<script>
+        var input = document.getElementById('cantidad');
+        input.oninvalid = function(event) { event.target.setCustomValidity('La cantidad solo acepta números enteros '); }
+</script>

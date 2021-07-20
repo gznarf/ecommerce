@@ -12,33 +12,33 @@
       </div>
       <div class="col-md-6 my-5 border bg-light">
         <h2 class="text-uppercase mt-3 font-weight-bold text-dark">Contactenos</h2>
-        <?php echo form_open('verificar_contacto')?>
+        <?php echo form_open("verificar_consulta/$id_usuario")?>
           <div class="row">
             <div class="col-lg-6">
               <div class="form-group">
                 <label>Nombre</label>
-                <input type="text" name="nombre" class="form-control mt-2" placeholder="Nombre">
+                <input type="text" name="nombre" class="form-control mt-2" placeholder="Nombre" value="<?php echo $nombre ;?>">
                 <span class="text-danger"><?php echo form_error('nombre');?></span>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
               <label>Apellido</label>
-                <input type="text" name="apellido" class="form-control mt-2" placeholder="Apellido">
+                <input type="text" name="apellido" class="form-control mt-2" placeholder="Apellido" value="<?php echo $apellido ;?>">
                 <span class="text-danger"><?php echo form_error('apellido');?></span>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
               <label>E-mail</label>
-                <input type="email" name="email" class="form-control mt-2" placeholder="Email">
+                <input type="email" name="email" class="form-control mt-2" placeholder="Email" value="<?php echo $email ;?>">
                 <span class="text-danger"><?php echo form_error('email');?></span>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
               <label>Teléfono</label>
-                <input type="tel" name="telefono" class="form-control mt-2" placeholder="Telefono">
+                <input type="tel" name="telefono" class="form-control mt-2" placeholder="Telefono" value="<?php echo $telefono ;?>">
                 <span class="text-danger"><?php echo form_error('telefono');?></span>
               </div>
             </div>

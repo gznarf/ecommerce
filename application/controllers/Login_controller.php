@@ -10,15 +10,11 @@ class Login_controller extends CI_Controller{
     }
 
     public function login(){
-        if($this->session->userdata('logged_in')){
-            redirect('dashboard_view');
-        }else{
         $data = array('titulo' => "Login");
         $this->load->view('front/header', $data);
         $this->load->view('front/menu');
         $this->load->view('usuario/login_view');
         $this->load->view('front/footer');
-        }
     }
 
     public function ingresar(){
@@ -35,7 +31,7 @@ class Login_controller extends CI_Controller{
         //En caso de que falle la validacion vuelve a cargar la pagina de Login
             $this->login();
         }else{
-            redirect('dashboard_view');
+            redirect('dashboard');
         }
         //Pagina que carga despues de loguearse edirect(current_url()); ---> Vuelve a la pagina que estaba antes de loguearse
     }
@@ -49,12 +45,16 @@ class Login_controller extends CI_Controller{
         if($result){
         //Si el resultado es correcto lo asigna a la variable session
         foreach($result as $row){
-            $sess_array = array('id' => $row->id,
-            'nombre' => $row->nombre,
-            'apellido' => $row->apellido,
-            'email' => $row->email,
-            'usuario' => $row->usuario,
-            'perfil_id' => $row->perfil_id);
+            $sess_array = array(
+            'id_usuario'    => $row->id_usuario,
+            'nombre'        => $row->nombre,
+            'apellido'      => $row->apellido,
+            'email'         => $row->email,
+            'usuario'       => $row->usuario,
+            'perfil_id'     => $row->perfil_id,
+            'logged_in'     => TRUE
+            );
+            
             $this->session->set_userdata('logged_in', $sess_array);
         }return TRUE;
             }else{//Sino devuelve que los datos no coinciden
@@ -62,6 +62,9 @@ class Login_controller extends CI_Controller{
             return false;
             }
     }
+
+
+   
 
     public function logout(){
         $this->session->sess_destroy();

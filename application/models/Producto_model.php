@@ -27,7 +27,7 @@ class Producto_model extends CI_Model{
     }
 
     public function mostrar_productos(){
-        $query = $this->db->limit(6)->get_where('productos', array('estado_producto' => 1));
+        $query = $this->db->get_where('productos', array('estado_producto' => 1));
         if($query->num_rows() > 0){
             return $query;
         }else{
@@ -37,7 +37,7 @@ class Producto_model extends CI_Model{
 
     public function numero_productos(){
         $query = $this->db->count_all('productos');
-        return $query;
+        return intval($query);
     }
 
     public function pagination($per_page){
@@ -45,7 +45,9 @@ class Producto_model extends CI_Model{
     }
 
     public function listar_productos(){
-        $query = $this->db->get_where('productos');
+        $this->db->get('productos');
+		$this->db->join('categorias', 'categorias.id_categoria = productos.id_categoria');
+		$query = $this->db->get('productos');
         if($query->num_rows() > 0){
             return $query;
         }else{
@@ -79,6 +81,25 @@ class Producto_model extends CI_Model{
         if($query){
             return TRUE;
         }else{
+            return FALSE;
+        }
+    }
+
+    public function actualizar_productos($data,$id_producto){
+        $this->db->where('id_producto',$id_producto);
+        $query = $this->db->update('productos',$data);
+        if($query) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
+    function edit_producto($id){
+        $query = $this->db->get_where('productos', array('id_producto' => $id),1);                
+        if($query->num_rows() == 1) {
+            return $query;
+        } else {
             return FALSE;
         }
     }

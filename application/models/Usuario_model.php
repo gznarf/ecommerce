@@ -11,13 +11,62 @@ class Usuario_model extends CI_Model {
 		return $this->db->insert_id();
 	}
 
-	public function obtenerClientes(){
-        $consulta = $this->db->get('usuarios');
+    function obtener_usuarios(){
+		$query = $this->db->get_where('usuarios', array('estado_usuario' => 1));
 
-         if($consulta->num_rows()>0){            
-            return $consulta;            
+		if($query->num_rows()>0) {
+            return $query;
+        } else {
+            return FALSE;
+        }
+    }
+
+     public function listar_usuarios(){
+        $query = $this->db->get('usuarios');
+        if($query->num_rows() > 0){
+            return $query;
         }else{
-            return false;
-        } 
-     }
+            return FALSE;
+        }
+    }
+
+    public function seleccionar_usuario($id){
+        $query = $this->db->get_where('usuarios', array('id_usuario' => $id),1);
+        if($query->num_rows() == 1){
+            return $query;
+        }else{
+            return FALSE;
+        }
+    }
+
+    public function actualizar_perfil($id_usuario, $usuario){
+        $this->db->where('id_usuario', $id_usuario);
+        $query = $this->db->update('usuarios', $usuario);
+        if($query){
+            return TRUE;
+        }else{
+            return FALSE;
+        }
+    }
+
+    public function eliminar_perfil($id_usuario, $usuario){
+        $this->db->where('id_usuario', $id_usuario);
+        $query = $this->db->update('usuarios', $usuario);
+        if($query){
+            return TRUE;
+        }else{
+            return FALSE;
+        }
+    }
 }
+
+/*
+	function obtener_usuarios(){
+		$query = $this->db->get_where('usuarios', array('estado_usuario' => 1));
+
+		if($query->num_rows()>0) {
+            return $query;
+        } else {
+            return FALSE;
+        }
+	} */

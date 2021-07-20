@@ -49,32 +49,70 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller']    = 'View_controller';
+$route['default_controller']        = 'View_controller';
 $route['404_override'] = '';
-$route['translate_uri_dashes']  = FALSE;
-$route['nosotros']              = 'View_controller/nosotros';
-$route['terminos']              = 'View_controller/terminos';
-$route['comercializacion']      = 'View_controller/comercializacion';
-$route['contacto']              = 'View_controller/contacto';
-$route['dashboard_view']        = 'View_controller/dashboard_view';
-$route['productos']             = 'View_controller/productos';
+$route['translate_uri_dashes']      = FALSE;
+$route['nosotros']                  = 'View_controller/nosotros';
+$route['terminos']                  = 'View_controller/terminos';
+$route['comercializacion']          = 'View_controller/comercializacion';
+$route['dashboard']                 = 'View_controller/dashboard';
+
 /**Controlador usuarios */
-$route['registrarse']           = 'Usuario_controller/registrarse';
-$route['registrar']             = 'Usuario_controller/registrar';
+$route['registrarse']               = 'Usuario_controller/registrarse';
+$route['registrar']                 = 'Usuario_controller/registrar';
+$route['listado_usuarios']          = 'Usuario_controller/listado_usuarios';
+$route['perfil']                    = 'Usuario_controller/perfil';
+$route['verificar_perfil/(:num)']   = 'Usuario_controller/verificar_perfil/$1';
+$route['editar_perfil/(:num)']      = 'Usuario_controller/editar_perfil/$1';
+$route['eliminar_perfil/(:num)']    = 'Usuario_controller/eliminar_perfil/$1';
+$route['modificado']                = 'Usuario_controller/modificado';
+
 /**Controlador Logueo */
-$route['login']                 = 'Login_controller/login';
-$route['ingresar']              = 'Login_controller/ingresar';
-$route['logout']                = 'Login_controller/logout';
+$route['login']                     = 'Login_controller/login';
+$route['ingresar']                  = 'Login_controller/ingresar';
+$route['logout']                    = 'Login_controller/logout';
+
 /**Controlaror Categorias */
-$route['categorias']            = 'Categorias_controller/categorias';
-$route['registrar_categoria']   = 'Categorias_controller/registrar_categoria';
+$route['categorias']                = 'Categorias_controller/categorias';
+$route['registrar_categoria']       = 'Categorias_controller/registrar_categoria';
+$route['listado_categorias']        = 'Categorias_controller/listado_categorias';
+$route['editar_categoria/(:num)']   = 'Categorias_controller/editar_categoria/$1';
+$route['verificar_editar/(:num)']   = 'Categorias_controller/verificar_editar/$1';
+$route['eliminar_categoria/(:num)'] = 'Categorias_controller/eliminar_categoria/$1';
+$route['activar_categoria/(:num)']  = 'Categorias_controller/activar_categoria/$1';
+$route['gracias']                   = 'Categorias_controller/gracias';
+
 /**Controlador Productos */
-$route['cargar_productos']      = 'Productos_controller/cargar_productos';
-$route['registrar_producto']    = 'Productos_controller/registrar_producto';
-$route['editar_producto']       = 'Productos_controller/editar_producto';
-$route['listado_productos']     = 'Productos_controller/listado_productos';
-$route['editar_producto/(:num)']        = 'Productos_controller/editar_producto/$1';
-$route['verifica_actualizar/(:num)']    = 'Productos_controller/verifica_actualizar/$1';
-$route['eliminar_producto/(:num)']      = 'Productos_controller/eliminar_producto/$1';
-$route['activar_producto/(:num)']       = 'Productos_controller/activar_producto/$1';
-$route['mostrar_productos']      = 'Productos_controller/mostrar_productos';
+$route['productos']                 = 'Productos_controller/mostrar_productos';
+$route['gracias']                   = 'Productos_controller/gracias';
+$route['cargar_productos']          = 'Productos_controller/cargar_productos';
+$route['registrar_producto']        = 'Productos_controller/registrar_producto';
+$route['editar_producto']           = 'Productos_controller/editar_producto';
+$route['listado_productos']         = 'Productos_controller/listado_productos';
+$route['editar_producto/(:num)']    = 'Productos_controller/editar_producto/$1';
+$route['verifica_actualizar/(:num)']= 'Productos_controller/verifica_actualizar/$1';
+$route['eliminar_producto/(:num)']  = 'Productos_controller/eliminar_producto/$1';
+$route['activar_producto/(:num)']   = 'Productos_controller/activar_producto/$1';
+$route['mostrar_productos']         = 'Productos_controller/mostrar_productos';
+$route['detalles_producto/(:num)']  = 'Productos_controller/detalles_producto/$1';
+
+/**Controlador Consultas */
+$route['contacto']                  = 'Consultas_controller/contacto';
+$route['consultas/(:num)']          = 'Consultas_controller/consultas/$1';
+$route['verificar_contacto']        = 'Consultas_controller/verificar_contacto';
+$route['listado_consultas']         = 'Consultas_controller/listado_consultas';
+$route['listado_consulta']          = 'Consultas_controller/listado_consulta';
+$route['gracias']                   = 'Consultas_controller/gracias';
+$route['verificar_consulta/(:num)'] = 'Consultas_controller/verificar_consulta/$1';
+
+/**Controlador Carrito*/
+$route['mostrar_carrito']           = 'Carrito_controller/mostrar_carrito';
+$route['agregar']                   = 'Carrito_controller/agregar';
+$route['actualizar_carrito']        = 'Carrito_controller/actualizar_carrito';
+$route['eliminar_carrito']          = 'Carrito_controller/eliminar_carrito';
+$route['quitar_carrito/(:any)']     = 'Carrito_controller/quitar_carrito/$1';
+$route['finalizar_compra']          = 'Carrito_controller/finalizar_compra';
+$route['comprar_carrito/(:num)']    = 'Carrito_controller/comprar_carrito/$1';
+$route['confirma_compra']           = 'Carrito_controller/guarda_compra';
+$route['verificar_compra']          = 'Carrito_controller/verificar_compra';
+$route['compra_detalles']           = 'Carrito_controller/compra_detalles';

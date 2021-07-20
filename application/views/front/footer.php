@@ -57,6 +57,7 @@
           </div>
        </div>
     </div>
+</footer>
 <!-- End Footer -->
 
 <script src="<?php echo base_url();?>assets/js/jquery-3.6.0.min.js"></script>

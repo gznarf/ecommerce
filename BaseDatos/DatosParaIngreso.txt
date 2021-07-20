@@ -1,0 +1,3 @@
+Usuario administrador: german@gmail.com Contraseña: hamunaptra
+
+Usuario normal: franzi@gmail.com Contraseña: hamunaptra
